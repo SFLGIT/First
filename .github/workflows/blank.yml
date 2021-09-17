@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CI-Testing-Actions
 env:                                                    #Stexcel
   APPLICATION_NAME : "MyTest"                           #global  
   DEPLOY_PACKAGE_NAME : "deploy-ver-${{github.sha}}"    #environment
