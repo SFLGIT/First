@@ -38,7 +38,8 @@ jobs:
         
   my_deploy:
     runs-on: windows-latest
-    #needs: [my_testing]                                # hertov jobsere run linelu command
+    needs: [my_testing]                                # hertov jobsere run linelu command
+    
 #     env:                                              # Job 
 #       VAR1: "This is Job Level Variable1"             # level
 #       VAR2: "This is Job Level Variable1"             # variables
