@@ -24,7 +24,7 @@ jobs:
       - name: Pront Hello World message
         run: echo "Hello, world! from testing"
   my_deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Runs a single command using the runners shell
