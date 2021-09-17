@@ -16,44 +16,43 @@ on:
 jobs:
   # This workflow contains a jobs called my_testing, my_deploy"
   my_testing:
-    
     runs-on: ubuntu-latest
    
-    steps:
-      
+    steps: 
       - name: Pront Hello World message inTesting
         run: echo "Hello, world! from testing"
+        
       - name: Execute few commands
         run: |
           echo "Hello message1"
           echo "Hello Message2"
           echo "Aplication name: ${{env.APPLICATION_NAME }}"
       
-      - name: Git clon my repo              # Cloning git files 
-        uses: actions/checkout@v1           # into virtualmachine
+#       - name: Git clon my repo              # Cloning git files 
+#         uses: actions/checkout@v1           # into virtualmachine
         
-      - name: List current folder           # Check files
-        run: ls -la                         # In directory
+#       - name: List current folder           # Check files
+#         run: ls -la                         # In directory
       
       
         
   my_deploy:
     runs-on: windows-latest
-    #needs: [my_testing]   # hertov jobsere run linelu command
-    env:                                              # Job 
-      VAR1: "This is Job Level Variable1"             # level
-      VAR2: "This is Job Level Variable1"             # variables
+    #needs: [my_testing]                                # hertov jobsere run linelu command
+#     env:                                              # Job 
+#       VAR1: "This is Job Level Variable1"             # level
+#       VAR2: "This is Job Level Variable1"             # variables
       
 
     steps:
     
-      - name: Print env vars
-        run: |
-          echo "Var1  = ${{env.Var1}}"
-          echo "Var2  = ${{env.Var2}}"
-          #echo "Var3  = $LOCAL_VAR"
-        env:
-          LOCAL_VAR: "This is Super local Environment variable"
+#       - name: Print env vars
+#         run: |                                         # Job
+#           echo "Var1  = ${{env.Var1}}"                 # level
+#           echo "Var2  = ${{env.Var2}}"                 # variables
+#           #echo "Var3  = $LOCAL_VAR"
+#         env:
+#           LOCAL_VAR: "This is Super local Environment variable"
       
       - name: Pront Hello World message in deploy
         run: echo "Hello, world! from deployment"
