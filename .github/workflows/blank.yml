@@ -1,9 +1,9 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI_For_Firts_Testing
-env:
-  APPLICATION_NAME       : "MyTEST"
-  DEPLOY_PACKAGE_NAME    : "deploy-ver-${{}github.sha}"
+name: CI
+
+  APPLICATION_NAME : "MyTEST"
+  DEPLOY_PACKAGE_NAME : "deploy-ver-${{github.sha}}"
 
 # Controls when the workflow will run
 on:
