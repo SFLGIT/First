@@ -12,18 +12,15 @@ on:
     branches: 
       - main
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a jobs called my_testing, my_deploy"
   my_testing:
-    # The type of runner that the job will run on
+    
     runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
+   
     steps:
-      # Runs a single command using the runners shell
+      
       - name: Pront Hello World message inTesting
         run: echo "Hello, world! from testing"
       - name: Execute few commands
@@ -32,21 +29,34 @@ jobs:
           echo "Hello Message2"
           echo "Aplication name: ${{env.APPLICATION_NAME }}"
       
-      - name: Git clon my repo
-        uses: actions/checkout@v1
+      - name: Git clon my repo              # Cloning git files 
+        uses: actions/checkout@v1           # into virtualmachine
         
-      - name: List current folder
-        run: ls -la
+      - name: List current folder           # Check files
+        run: ls -la                         # In directory
       
       
         
   my_deploy:
     runs-on: windows-latest
     #needs: [my_testing]   # hertov jobsere run linelu command
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    env:                                              # Job 
+      VAR1: "This is Job Level Variable1"             # level
+      VAR2: "This is Job Level Variable1"             # variables
+      
+
     steps:
-      # Runs a single command using the runners shell
+    
+      - name: Print env vars
+        run: |
+          echo "Var  = ${{env.Var1}}"
+          echo "Var  = ${{env.Var2}}"
+          echo "var3 = $LOCAL_VAR"
+        env:
+          LOCAL_VAR: "This is Superr local Environment variable"
+      
       - name: Pront Hello World message in deploy
         run: echo "Hello, world! from deployment"
+        
       - name : Printing Deployment packege
         run : echo "Deploy packge name is $ {{env.DEPLOY_PACKAGE_NAME}}"
