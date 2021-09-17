@@ -1,6 +1,9 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CI_For_Firts_Testing
+env:
+  APPLICATION_NAME       : "MyTEST"
+  DEPLOY_PACKAGE_NAME    : "deploy-ver-${{}github.sha}"
 
 # Controls when the workflow will run
 on:
@@ -23,7 +26,14 @@ jobs:
       # Runs a single command using the runners shell
       - name: Pront Hello World message inTesting
         run: echo "Hello, world! from testing"
+      - name: Execute few commands
+        run: |
+          echo "Hello message1"
+          echo "Hello Message2"
+          echo "Aplication name: ${{env.APPLICATION_NAME }}"
         
+    
+  
         
   my_deploy:
     runs-on: windows-latest
@@ -33,3 +43,5 @@ jobs:
       # Runs a single command using the runners shell
       - name: Pront Hello World message in deploy
         run: echo "Hello, world! from deployment"
+      - name : Printing Deployment packege
+        run : echo "Deploy packge name is $ {{env.DEPLOY_PACKAGE_NAME}}"
