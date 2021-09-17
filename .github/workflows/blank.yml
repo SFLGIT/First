@@ -31,14 +31,18 @@ jobs:
           echo "Hello message1"
           echo "Hello Message2"
           echo "Aplication name: ${{env.APPLICATION_NAME }}"
+      
+      - name: Git clon my repo
+        uses: actions/checkout@v1
         
       - name: List current folder
-        run: ls - la
-  
+        run: ls -la
+      
+      
         
   my_deploy:
     runs-on: windows-latest
-    needs: [my_testing]   # hertov jobsere run linelu command
+    #needs: [my_testing]   # hertov jobsere run linelu command
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Runs a single command using the runners shell
