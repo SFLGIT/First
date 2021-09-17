@@ -21,12 +21,15 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Runs a single command using the runners shell
-      - name: Pront Hello World message
+      - name: Pront Hello World message inTesting
         run: echo "Hello, world! from testing"
+        
+        
   my_deploy:
     runs-on: windows-latest
+    needs: [my_testing]   # hertov jobsere run linelu command
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Runs a single command using the runners shell
-      - name: Pront Hello World message
+      - name: Pront Hello World message in deploy
         run: echo "Hello, world! from deployment"
